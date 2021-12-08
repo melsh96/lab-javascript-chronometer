@@ -32,6 +32,7 @@ class Chronometer {
       stringDoubleNumber = value.toString();
 
     return stringDoubleNumber;
+    // return String(value).length === 2 ? String(value) : '0' + value
   }
 
   stop() {
