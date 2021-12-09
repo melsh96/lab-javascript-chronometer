@@ -4,10 +4,14 @@ class Chronometer {
     this.intervalId = null;
   }
 
-  start(callback) {
+  start(printTime) {
     this.intervalId = setInterval(() => {
-      //if (typeof callback === 'function) callback()
       this.currentTime += 1;
+      if (typeof printTime === 'function') printTime();
+      // printTime(
+      //   this.computeTwoDigitNumber(this.getMinutes()),
+      //   this.computeTwoDigitNumber(this.getSeconds())
+      // );
     }, 1000);
   }
 
@@ -23,13 +27,10 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    let stringDoubleNumber = "";
+    let stringDoubleNumber = '';
     //console.log(typeof value);
-    if (value < 10)
-      stringDoubleNumber = "0" + value.toString();
-
-    else 
-      stringDoubleNumber = value.toString();
+    if (value < 10) stringDoubleNumber = '0' + value.toString();
+    else stringDoubleNumber = value.toString();
 
     return stringDoubleNumber;
     // return String(value).length === 2 ? String(value) : '0' + value
@@ -40,7 +41,7 @@ class Chronometer {
   }
 
   reset() {
-    return this.currentTime = 0;
+    return (this.currentTime = 0);
   }
 
   split() {
